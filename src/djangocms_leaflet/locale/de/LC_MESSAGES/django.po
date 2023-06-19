@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-18 16:27+0100\n"
+"PO-Revision-Date: 2020-02-18 16:27+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: apps.py:7
+msgid "DjangoCMS Leaflet Map"
+msgstr "DjangoCMS Leaflet Karte"
+
+#: cms_plugins.py:13
+msgid "Map"
+msgstr "Karte"
+
+#: cms_plugins.py:28
+msgid "Marker"
+msgstr "Markierung"
+
+#: models.py:8 models.py:25
+msgid "name"
+msgstr "Name"
+
+#: models.py:9 models.py:26
+msgid "latitude"
+msgstr "Breite"
+
+#: models.py:9 models.py:10
+msgid "in °"
+msgstr "in °"
+
+#: models.py:10 models.py:27
+msgid "longitude"
+msgstr "Länge"
+
+#: models.py:11
+msgid "zoom level"
+msgstr "Zoomstufe"
+
+#: models.py:11
+msgid "0…18"
+msgstr "0…18"
+
+#: models.py:12
+msgid "height of map"
+msgstr "Höhe der Karte"
+
+#: models.py:12
+msgid "in px"
+msgstr "in px"
+
+#: models.py:14
+msgid "set marker"
+msgstr "Markierung setzen"
+
+#: models.py:15
+msgid "Set marker with name at the centre"
+msgstr "Markierung in die Mitte setzen"
+
+#~ msgid "0…21"
+#~ msgstr "0…21"

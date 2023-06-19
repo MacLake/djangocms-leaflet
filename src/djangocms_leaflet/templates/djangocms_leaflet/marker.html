@@ -1,0 +1,15 @@
+{% load static cms_tags sekizai_tags i18n l10n %}
+{% localize off %} {# avoid decimal comma #}
+
+{% addtoblock "js" strip %}
+<script>
+	$(function () {
+        L.marker([{{ instance.latitude }}, {{ instance.longitude }}]).addTo(map)
+            .bindPopup('{{ instance.name }}')
+            .openPopup();
+
+    })
+</script>
+{% endaddtoblock %}
+
+{% endlocalize %}

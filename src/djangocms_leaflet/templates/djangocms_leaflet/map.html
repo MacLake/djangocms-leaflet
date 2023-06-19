@@ -1,0 +1,56 @@
+{% load static cms_tags sekizai_tags i18n l10n %}
+{% addtoblock "css" strip %}
+{# <link href="{% static 'djangocms_leaflet/leaflet.css' %}" rel="stylesheet" type="text/css"> #}
+{% endaddtoblock %}
+
+{% localize off %} {# avoid decimal comma #}
+{% addtoblock "css" strip %}
+<style>
+	#map-{{ instance.id }} {
+		height: {{ instance.height }}px;
+		margin: 2rem;
+	}
+</style>
+{% endaddtoblock %}
+
+<div id="map-{{ instance.id }}"></div>
+
+{% addtoblock "js" strip %}
+{# <script defer src="{% static 'djangocms_leaflet/leaflet.js' %}"></script> #}
+<script defer src="{% static 'webpack/leaflet.bundle.js' %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "js" strip %}
+<script>
+	var map
+	$(function () {
+	    map = L.map('map-{{ instance.id }}').setView([{{ instance.latitude }}, {{ instance.longitude }}], {{ instance.zoom_level }});
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        {# https://stackoverflow.com/questions/64902171/angular-10-leaflet-webpack-breaking-url-to-marker-icon-png #}
+            let DefaultIcon = L.icon({
+	          iconUrl: '{%  static "images/leaflet-color-markers/marker-icon-2x-blue.png" %}',
+	          shadowUrl: '{%  static "images/leaflet-color-markers/marker-shadow.png" %}',
+			  iconSize: [24,36],
+			  iconAnchor: [12,36]
+			});
+            L.Marker.prototype.options.icon = DefaultIcon;
+
+		{% if instance.set_marker %}
+        L.marker([{{ instance.latitude }}, {{ instance.longitude }}]).addTo(map)
+            .bindPopup('{{ instance.name }}')
+            .openPopup();
+		{% endif %}
+    })
+</script>
+{% endaddtoblock %}
+
+{% for plugin in instance.child_plugin_instances %}
+{% render_plugin plugin %}
+{% endfor %}
+
+
+{% endlocalize %}
