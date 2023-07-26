@@ -13,13 +13,9 @@ module.exports = {
         ],
     },
     output: {
-        filename: '[name].bundle.js',
         path: path.resolve(__dirname, './src/djangocms_leaflet/static/webpack'),
+        filename: '[name].bundle.js',
         clean: true,
     },
-    // optimization: {
-    //     minimize: false
-    // },
-    // mode: 'development',
     mode: 'production',
 };

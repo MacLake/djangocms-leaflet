@@ -17,7 +17,7 @@
 
 {% addtoblock "js" strip %}
 {# <script defer src="{% static 'djangocms_leaflet/leaflet.js' %}"></script> #}
-<script defer src="{% static 'webpack/leaflet.bundle.js' %}"></script>
+<script defer src="{% static 'djangocms_leaflet/webpack/leaflet.bundle.js' %}"></script>
 {% endaddtoblock %}
 
 {% addtoblock "js" strip %}
@@ -32,8 +32,8 @@
         
         {# https://stackoverflow.com/questions/64902171/angular-10-leaflet-webpack-breaking-url-to-marker-icon-png #}
             let DefaultIcon = L.icon({
-	          iconUrl: '{%  static "images/leaflet-color-markers/marker-icon-2x-blue.png" %}',
-	          shadowUrl: '{%  static "images/leaflet-color-markers/marker-shadow.png" %}',
+	          iconUrl: '{%  static "djangocms_leaflet/images/leaflet-color-markers/marker-icon-2x-blue.png" %}',
+	          shadowUrl: '{%  static "djangocms_leaflet/images/leaflet-color-markers/marker-shadow.png" %}',
 			  iconSize: [24,36],
 			  iconAnchor: [12,36]
 			});
@@ -51,6 +51,4 @@
 {% for plugin in instance.child_plugin_instances %}
 {% render_plugin plugin %}
 {% endfor %}
-
-
 {% endlocalize %}
