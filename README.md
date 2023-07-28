@@ -17,6 +17,26 @@ This app provides plug-ins for the JavaScript map library [Leaflet](https://leaf
 ```console
 pip install djangocms-leaflet
 ```
+
+or add `djangocms-leaflet` to the dependencies of your project, e. g. in `pyprojet.toml`:
+```toml
+dependencies = [
+    # …
+    'djangocms-leaflet',
+    # …
+]
+```
+
+
+Add it to `INSTALLED_APPS` in the settings::
+
+```python
+INSTALLED_APPS: list[str] = [
+    # …
+    'djangocms_leaflet',
+    # …
+]
+```
 ## Usage
 
 Add a map plugin to a placeholder and fill in the form. Add markers as sub plugins if needed.
