@@ -17,9 +17,18 @@
 {% endaddtoblock %}
 
 {% addtoblock "js" strip %}
-<script defer>
-window.onload = function() {
-    const map = L.map('map-{{ instance.id }}').setView([{{ instance.latitude }}, {{ instance.longitude }}], {{ instance.zoom_level }});
+<script>
+{# Replacement for jquery’s $(function() {}) #}
+{# https://stackoverflow.com/questions/799981/document-ready-equivalent-without-jquery #}
+function ready(fn) {
+  if (document.readyState !== 'loading') {
+    fn();
+    return;
+  }
+  document.addEventListener('DOMContentLoaded', fn);
+}
+ready(function() {
+    map = L.map('map-{{ instance.id }}').setView([{{ instance.latitude }}, {{ instance.longitude }}], {{ instance.zoom_level }});
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -39,7 +48,7 @@ window.onload = function() {
             .bindPopup('{{ instance.name }}')
             .openPopup();
     {% endif %}
-}
+})
 </script>
 {% endaddtoblock %}
 
