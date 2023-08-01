@@ -25,6 +25,7 @@ classifiers = [
 dependencies = [
   "Django>=3.2",
   "django-cms>=3.11",
+  "requests>=2.31"
 ]
 
 [project.urls]

@@ -45,7 +45,7 @@ ready(function() {
 
     {% if instance.set_marker %}
         L.marker([{{ instance.latitude }}, {{ instance.longitude }}]).addTo(map)
-            .bindPopup('{{ instance.name }}')
+            .bindPopup('{{ instance }}')
             .openPopup();
     {% endif %}
 })
