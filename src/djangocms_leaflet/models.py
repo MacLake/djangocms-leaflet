@@ -47,11 +47,14 @@ class Geocode(CMSPlugin):
         if self.location_search_term and (
             self.latitude is None or self.longitude is None
         ):
-            payload = {'q': self.location_search_term, 'format': 'jsonv2'}
-            response: Response = requests.get(
+            payload: dict[str, str] = {
+                'q': self.location_search_term,
+                'format': 'jsonv2'
+            }
+            response: requests.Response = requests.get(
                 'https://nominatim.openstreetmap.org/search', params=payload
             )
-            geo_json = response.json()
+            geo_json: list[dict[str, any]] = response.json()
             try:
                 self.latitude = geo_json[0]['lat']
                 self.longitude = geo_json[0]['lon']
@@ -84,7 +87,7 @@ class Map(Geocode):
 
 class Marker(Geocode):
     """Marker that can be added to a map"""
-    def __str__(self):
+    def __str__(self) -> str:
         return (
             self.name if self.name else self.location_search_term if
             self.location_search_term else f'{self.latitude}° {self.longitude}°'
