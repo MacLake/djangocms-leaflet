@@ -6,7 +6,6 @@
     ready(function () {
         L.marker([{{ instance.latitude }}, {{ instance.longitude }}]).addTo(map)
             .bindPopup('{{ instance.name }}')
-            .openPopup();
     })
 </script>
 {% endaddtoblock %}

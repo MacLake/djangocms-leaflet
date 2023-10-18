@@ -3,7 +3,6 @@ from cms.models import CMSPlugin
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext as _
-from requests import Response
 
 
 class Geocode(CMSPlugin):
@@ -74,7 +73,7 @@ class Map(Geocode):
     set_marker = models.BooleanField(
         verbose_name=_('set marker'),
         help_text=_('Set marker with name at the centre'),
-        default=400
+        default=True
     )
 
     def __str__(self) -> str:
