@@ -46,12 +46,15 @@ class Geocode(CMSPlugin):
         if self.location_search_term and (
             self.latitude is None or self.longitude is None
         ):
+            headers = {'user-agent': 'djangocms-leaflet'}
             payload: dict[str, str] = {
                 'q': self.location_search_term,
                 'format': 'jsonv2'
             }
             response: requests.Response = requests.get(
-                'https://nominatim.openstreetmap.org/search', params=payload
+                'https://nominatim.openstreetmap.org/search',
+                headers=headers,
+                params=payload
             )
             geo_json: list[dict[str, any]] = response.json()
             try:
