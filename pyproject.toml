@@ -94,6 +94,8 @@ skip-string-normalization = true
 [tool.ruff]
 target-version = "py39"
 line-length = 120
+
+[tool.ruff.lint]
 select = [
   "E",
   "F",
@@ -103,16 +105,20 @@ unfixable = [
   "F841",  # unused variable
 ]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 known-first-party = ["djangocms_leaflet"]
 
-[tool.ruff.flake8-tidy-imports]
+[tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 # Tests can use magic values, assertions, and relative imports
 "tests/**/*" = ["PLR2004", "S101", "TID252"]
 "*/migrations/*" = ["E501"]  # Line too long
+
+[tool.ruff.format]
+quote-style = "single"
+docstring-code-format = true
 
 [tool.coverage.run]
 source_pkgs = ["djangocms_leaflet", "tests"]
