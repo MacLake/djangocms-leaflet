@@ -14,7 +14,7 @@ class Geocode(CMSPlugin):
         help_text=_(
             'Instead of coordinates you can enter the address or a search term, and Nominatim will try to look up the '
             'location. The first hit of the list will be used.'
-        )
+        ),
     )
     latitude = models.FloatField(
         blank=True, verbose_name=_('latitude'), help_text=_('in °')
@@ -24,7 +24,7 @@ class Geocode(CMSPlugin):
         verbose_name=_('longitude in °'),
         help_text=_(
             'in °<br>If you enter both latitude and longitude, these data won’t be overridden by a geocode lookup.'
-        )
+        ),
     )
 
     @property

@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -25,8 +24,8 @@ class Migration(migrations.Migration):
                         primary_key=True,
                         related_name='djangocms_leaflet_map',
                         serialize=False,
-                        to='cms.CMSPlugin'
-                    )
+                        to='cms.CMSPlugin',
+                    ),
                 ),
                 (
                     'name',
@@ -40,7 +39,7 @@ class Migration(migrations.Migration):
                     'zoom_level',
                     models.PositiveSmallIntegerField(
                         default=10, help_text='0…21', verbose_name='zoom level'
-                    )
+                    ),
                 ),
                 (
                     'height',
@@ -48,7 +47,7 @@ class Migration(migrations.Migration):
                         default=400,
                         help_text='in px',
                         verbose_name='height of map'
-                    )
+                    ),
                 ),
                 (
                     'set_marker',
@@ -56,7 +55,7 @@ class Migration(migrations.Migration):
                         default=400,
                         help_text='Set marker with name at the centre',
                         verbose_name='set marker'
-                    )
+                    ),
                 ),
             ],
             options={
@@ -76,8 +75,8 @@ class Migration(migrations.Migration):
                         primary_key=True,
                         related_name='djangocms_leaflet_marker',
                         serialize=False,
-                        to='cms.CMSPlugin'
-                    )
+                        to='cms.CMSPlugin',
+                    ),
                 ),
                 ('name', models.CharField(max_length=100, verbose_name='name')),
                 ('latitude', models.FloatField(verbose_name='latitude')),

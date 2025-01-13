@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('cms', '0022_auto_20180620_1551'),
         ('djangocms_leaflet', '0002_auto_20200310_2328'),
@@ -29,7 +28,7 @@ class Migration(migrations.Migration):
                 help_text=
                 'Instead of coordinates you can enter the address or a search term, and Nominatim will try to look up the location. The first hit of the list will be used.',
                 max_length=100,
-                verbose_name='location search term'
+                verbose_name='location search term',
             ),
         ),
         migrations.AddField(
@@ -47,7 +46,7 @@ class Migration(migrations.Migration):
                 help_text=
                 'Instead of coordinates you can enter the address or a search term, and Nominatim will try to look up the location. The first hit of the list will be used.',
                 max_length=100,
-                verbose_name='location search term'
+                verbose_name='location search term',
             ),
         ),
         migrations.AlterField(
@@ -60,7 +59,7 @@ class Migration(migrations.Migration):
                 primary_key=True,
                 related_name='%(app_label)s_%(class)s',
                 serialize=False,
-                to='cms.cmsplugin'
+                to='cms.cmsplugin',
             ),
         ),
         migrations.AlterField(
@@ -77,7 +76,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 help_text=
                 'in °<br>If you enter both latitude and longitude, these data won’t be overridden by a geocode lookup.',
-                verbose_name='longitude in °'
+                verbose_name='longitude in °',
             ),
         ),
         migrations.AlterField(
@@ -90,7 +89,7 @@ class Migration(migrations.Migration):
                 primary_key=True,
                 related_name='%(app_label)s_%(class)s',
                 serialize=False,
-                to='cms.cmsplugin'
+                to='cms.cmsplugin',
             ),
         ),
         migrations.AlterField(
@@ -107,7 +106,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 help_text=
                 'in °<br>If you enter both latitude and longitude, these data won’t be overridden by a geocode lookup.',
-                verbose_name='longitude in °'
+                verbose_name='longitude in °',
             ),
         ),
     ]

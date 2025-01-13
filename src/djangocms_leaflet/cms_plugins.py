@@ -8,6 +8,7 @@ from djangocms_leaflet.models import Map, Marker
 @plugin_pool.register_plugin
 class MapPublisher(CMSPluginBase):
     """Leaflet Map"""
+
     model = Map
     module = 'Leaflet Map'
     name = _('Map')
@@ -23,6 +24,7 @@ class MapPublisher(CMSPluginBase):
 @plugin_pool.register_plugin
 class MarkerPublisher(CMSPluginBase):
     """Marker for Leaflet Map"""
+
     model = Marker
     module = 'Leaflet Map'
     name = _('Marker')
