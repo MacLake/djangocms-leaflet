@@ -13,7 +13,7 @@ module.exports = {
         ],
     },
     output: {
-        path: path.resolve(__dirname, './src/djangocms_leaflet/static/webpack'),
+        path: path.resolve(__dirname, './src/djangocms_leaflet/static/djangocms_leaflet/webpack'),
         filename: '[name].bundle.js',
         clean: true,
     },

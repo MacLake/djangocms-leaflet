@@ -51,6 +51,16 @@ ready(function() {
 })
 </script>
 {% endaddtoblock %}
+{% addtoblock "js" strip %}
+ready(function() {
+    {% if instance.set_marker %}
+        L.marker([{{ instance.latitude }}, {{ instance.longitude }}]).addTo(map)
+            .bindPopup('{{ instance }}')
+            .openPopup();
+    {% endif %}
+})
+</script>
+{% endaddtoblock %}
 
 {% for plugin in instance.child_plugin_instances %}
 {% render_plugin plugin %}
