@@ -27,7 +27,12 @@ function ready(fn) {
   }
   document.addEventListener('DOMContentLoaded', fn);
 }
-ready(function() {
+</script>
+{% endaddtoblock %}
+
+{% addtoblock "js" strip %}
+<script>
+    ready(function() {
     map = L.map('map-{{ instance.id }}').setView([{{ instance.latitude }}, {{ instance.longitude }}], {{ instance.zoom_level }});
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
