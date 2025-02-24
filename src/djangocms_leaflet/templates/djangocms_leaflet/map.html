@@ -2,15 +2,22 @@
 
 {% localize off %} {# avoid decimal comma #}
 {% addtoblock "css" strip %}
-<style>
-	#map-{{ instance.id }} {
-		height: {{ instance.height }}px;
-		margin: 2rem;
-	}
-</style>
+    <style>
+    .djangocms-leaflet {
+        margin: 2rem;
+        z-index: 0;
+    }
+    </style>
+{% endaddtoblock %}
+{% addtoblock "css" strip %}
+    <style>
+        #map-{{ instance.id }} {
+            height: {{ instance.height }}px;
+        }
+    </style>
 {% endaddtoblock %}
 
-<div id="map-{{ instance.id }}"></div>
+<div class="djangocms-leaflet" id="map-{{ instance.id }}"></div>
 
 {% addtoblock "js" strip %}
 <script defer src="{% static 'djangocms_leaflet/webpack/leaflet.bundle.js' %}"></script>
