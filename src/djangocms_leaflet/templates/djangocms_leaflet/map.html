@@ -25,14 +25,13 @@
 
 {% addtoblock "js" strip %}
 <script>
-{# Replacement for jquery’s $(function() {}) #}
-{# https://stackoverflow.com/questions/799981/document-ready-equivalent-without-jquery #}
 function ready(fn) {
-  if (document.readyState !== 'loading') {
-    fn();
-    return;
-  }
-  document.addEventListener('DOMContentLoaded', fn);
+    // waits for the document to be fully loaded if leaflet is not available yet
+    if (window.L) {
+        fn();
+    } else {
+        window.addEventListener('load', fn);
+    }
 }
 </script>
 {% endaddtoblock %}
